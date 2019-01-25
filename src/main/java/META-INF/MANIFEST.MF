@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Implementation-Title: testtask
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.infobit
+Created-By: Apache Maven 3.3.9
+Build-Jdk: 1.8.0_144
+Main-Class: com.infobit.testtask.TesttaskApplication
+

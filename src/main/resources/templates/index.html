@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Front</title>
+    <script th:src="@{/angular.js}"></script>
+
+    <script th:src="@{/main.js}"></script>
+    <link th:href="@{/main.css}" rel="stylesheet"/>
+
+</head>
+<body ng-app="DataEntityFront" ng-controller="DataEntityController">
+
+<div ng-if="errorMessage">
+    Something went wrong:
+    <br/>
+    {{errorMessage}}
+</div>
+
+
+<h3>
+    Add Data Entity:
+</h3>
+<form ng-submit="submitDataEntity()">
+    <table border="0">
+        <tr>
+            <td>Key</td>
+            <td><input type="text" ng-model="dataEntity.key"/></td>
+        </tr>
+        <tr>
+            <td>Generation</td>
+            <td><input type="text" ng-model="dataEntity.value.generation"/></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><input type="text" ng-model="dataEntity.value.description"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Submit" class="blue-button"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<br/>
+
+
+<h3>
+    Get Values by key:
+</h3>
+<form ng-submit="getValuesByKey()">
+    <table border="0">
+        <tr>
+            <th>
+                Key: <input type="text" ng-model="key"/>
+            </th>
+            <th>
+                <input type="submit" value="Submit" class="blue-button"/>
+            </th>
+        </tr>
+    </table>
+</form>
+<table border="1">
+    <tr>
+        <th>Generation</th>
+        <th>Description</th>
+    </tr>
+    <!-- $scope.value -->
+    <tr ng-repeat="value in values">
+        <td> {{value.generation}}</td>
+        <td>{{value.description}}</td>
+    </tr>
+</table>
+</body>
+</html>
